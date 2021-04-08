@@ -1,0 +1,40 @@
+html {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#etch-table {
+    width: 80%;
+    height: 80%;
+
+    background-color: white;
+    border: thick solid black;
+
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: repeat(16, 1fr);
+    grid-auto-flow: row;
+    overflow: hidden;
+
+}
+
+.pixel {
+    width : 100%;
+    height : 100%;
+    background-color: black;
+    opacity: 10%;
+}
+
+.sketched {
+    opacity: inherit;
+    opacity: 100%;
+}
