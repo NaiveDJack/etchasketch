@@ -1,14 +1,15 @@
-const table = document.querySelector('#etch-table')
-const pixel = Array.from(document.querySelectorAll('.pixel'));
+const table = document.querySelector('#etch-table'),
+newTableBTN = document.querySelector('#new-table-btn'),
+pixel = Array.from(document.querySelectorAll('.pixel'));
 
 
-function createTable(rowLength, columnLength) {
+function createTable(size) {
     document.getElementById("etch-table").style.gridTemplateColumns =
-            'repeat(' + columnLength +', 1fr)';
+        `repeat(${size}, 1fr)`;
     document.getElementById("etch-table").style.gridTemplateRows =
-            'repeat(' + rowLength +', 1fr)'
+            `repeat(${size}, 1fr)`;
     
-        for (i = rowLength*columnLength; i > 0; i--) {
+        for (i = size**2; i > 0; i--) {
         let square = document.createElement('DIV');
         square.classList.add('pixel')
         table.appendChild(square);
@@ -24,22 +25,25 @@ function clearTable() {
     //createTable(number, number)
 }
 
-//TODO: hover changes colour to pixels
-//HOW TO ADD A CLASS TO ALL PIXELS? toggle?
+function newTable() {
+    clearTable();
+    createTable(prompt('Input etch-a-sketch size', 16));
+}
+
 table.onmouseover = function(event) {
     let target = event.target;
 
-    if (target.tagName != 'DIV') return;
+    if (target.tagName != 'DIV' || target.id == "etch-table") return;
 
     sketch(target)
 }
 
 function sketch(div) {
-    div.classList.add('sketched'); 
-    /* this work but try direct js update
-    let opacity = parseInt(div.style);
-    if (opacity < 100) {
-        opacity += 10
-    }
-    div.style.color */
+    let oldOpa = Number(div.style.opacity);
+    if (oldOpa < 1) {
+        oldOpa += 0.1;
+    }  
+    div.style.opacity = `${oldOpa}`;
 }
+
+newTableBTN.addEventListener('click', newTable);

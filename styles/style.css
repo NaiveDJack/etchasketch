@@ -8,6 +8,7 @@ body {
     height: 100%;
 
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -31,10 +32,5 @@ body {
     width : 100%;
     height : 100%;
     background-color: black;
-    opacity: 10%;
-}
-
-.sketched {
-    opacity: inherit;
-    opacity: 100%;
+    opacity: 0;
 }
