@@ -9,19 +9,28 @@
     <link rel="stylesheet" type = "text/css" href="./styles/style.css" media="screen">
 </head>
 <body>
-    <h1>Naive D. Jack's Etch-A-Sketch</h1>
+    <header>
+        <h1>Naive D. Jack's Etch-A-Sketch</h1>
+    </header>
+    
     <div id="container">
         <main id="etch-table"></main>
         <div id="eraser-panel">
             <input id="eraser" title ="Eraser function coming soon!" 
                 type="range" min="1" max="100" value="16" class="slider">            
         </div>
+        <div id="preferences">
+            <h2>Preferences</h2>
+            <label for="size-picker">Table size (0-100)</label>
+            <input id="size-picker" type="number" min="1" max="100" value="16">
+            <button id="new-table-btn">New table</button>
+        </div>
     </div>
-    <div id="preferences">
-        <label for="size-picker">Table size (0-100)</label>
-        <input id="size-picker" type="number" min="1" max="100" value="16">
-        <button id="new-table-btn">New table</button>
-    </div>
+    <footer>
+        ©<a href="https://github.com/naivedjack">Daniele Latella</a>
+        - an exercise by <a href="theodinproject.com/">the Odin Project</a>.
+        Background image by FWStudio from <a href="https://www.pexels.com/">Pexels</a>.
+    </footer>
     
     <script src="./scripts/script.js"></script>
 </body>
